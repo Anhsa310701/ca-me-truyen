@@ -2,22 +2,195 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Web Truyện Của Tôi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cá Mê Truyện | Demo</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #333; }
-        .truyen-list { list-style: none; padding: 0; }
-        .truyen-item { margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        /* PHẦN GIAO DIỆN (CSS) */
+        :root {
+            --primary-color: #ff7e5f;
+            --dark-color: #2c3e50;
+            --light-bg: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+
+        /* Danh sách truyện */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .story-image {
+            height: 180px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .story-content {
+            padding: 20px;
+        }
+
+        .story-content h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+
+        .story-content p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            height: 4.5em; /* Giới hạn dòng mô tả */
+            overflow: hidden;
+        }
+
+        .btn-read {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-read:hover {
+            background: #e66a4e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
-    <h1>Kho Truyện Sáng Tác</h1>
-    <ul class="truyen-list">
-        <li class="truyen-item">
-            <h3>Tên Truyện 1</h3>
-            <p>Mô tả ngắn về nội dung truyện...</p>
-            <a href="chuong1.html">Đọc ngay</a>
-        </li>
-    </ul>
+
+    <header>
+        <h1>🐟 Cá Mê Truyện</h1>
+        <p>Kho lưu trữ truyện chữ & Animation Demo</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Trang Chủ</a>
+        <a href="#">Truyện Chữ</a>
+        <a href="#">YouTube Channel</a>
+        <a href="#">Liên Hệ</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Truyện Mới Cập Nhật</h2>
+        
+        <div class="story-grid">
+            <div class="story-card">
+                <div class="story-image">📝</div>
+                <div class="story-content">
+                    <h3>Hành Trình Cá Nhỏ</h3>
+                    <p>Một câu chuyện phiêu lưu đầy thú vị về thế giới dưới lòng đại dương...</p>
+                    <a href="chuong-1.html" class="btn-read">Đọc Ngay</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image">🎮</div>
+                <div class="story-content">
+                    <h3>Xuyên Không Roblox</h3>
+                    <p>Sẽ ra sao nếu bạn bị kẹt trong thế giới Blox Fruit với hệ thống cấp bậc?</p>
+                    <a href="#" class="btn-read">Sắp Ra Mắt</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image">🎨</div>
+                <div class="story-content">
+                    <h3>Stickman Đại Chiến</h3>
+                    <p>Phiên bản truyện chữ của series animation Stickman trên YouTube.</p>
+                    <a href="#" class="btn-read">Sắp Ra Mắt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cá Mê Truyện. Website đang trong giai đoạn Demo trên GitHub.</p>
+        <p>Ghi chú: Nội dung sẽ được cập nhật khi có tên miền chính thức.</p>
+    </footer>
+
 </body>
 </html>
